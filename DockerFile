@@ -4,7 +4,7 @@ RUN apk --no-cache add git npm bash
 
 WORKDIR /app
 
-# Create node user so container doesn't run with root permissions
+# Create react user so container doesn't run with root permissions
 RUN addgroup -S react && adduser -S react -G react && \
     mkdir -p /app && chown -R react:react /app
 

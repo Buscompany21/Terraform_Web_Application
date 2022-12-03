@@ -61,7 +61,7 @@ resource "aws_eip" "group-project-3-nat_eip" {
 # NAT Gateway for VPC
 resource "aws_nat_gateway" "group-project-3-nat" {
   allocation_id             = aws_eip.group-project-3-nat_eip.id
-  subnet_id                 = aws_subnet.public.id
+  subnet_id                 = aws_subnet.app_subnet.id
 
   tags = {
       Name = "group-project-3-nat"

@@ -13,7 +13,7 @@ resource "aws_vpc" "project_3_vpc" {
 }
 # Public App Subnet Resource
 resource "aws_subnet" "app_subnet" {
-  vpc_id                    = aws_vpc.project3_vpc.id
+  vpc_id                    = aws_vpc.project_3_vpc.id
   cidr_block                = "10.0.0.0/20"
   map_public_ip_on_launch   = true
   availability_zone         = data.aws_availability_zones.available.names[1]
@@ -30,7 +30,7 @@ data "aws_availability_zones" "available" {
 
 # Public DB Subnet Resource
 resource "aws_subnet" "db_subnet" {
-  vpc_id                    = aws_vpc.project3_vpc.id
+  vpc_id                    = aws_vpc.project_3_vpc.id
   cidr_block                = "10.0.128.0/20"
   availability_zone         = data.aws_availability_zones.available.names[0]
   map_public_ip_on_launch   = true
@@ -42,7 +42,7 @@ resource "aws_subnet" "db_subnet" {
 
 # Resource for Internet Gateway for Public Subnet
 resource "aws_internet_gateway" "group-project-3-main_igw" {
-  vpc_id                    = aws_vpc.project3_vpc.id
+  vpc_id                    = aws_vpc.project_3_vpc.id
 
   tags = {
       Name = "group-project-3-main_igw"
@@ -98,7 +98,7 @@ resource "aws_route_table_association" "db_subnet" {
 # resource "aws_security_group" "ec2_sg" {
 #   name                      = "ec2_security_group"
 #   description               = "Security Group for EC2 webserver instance for SSH and HTTP/HTTPS traffic"
-#   vpc_id                    = aws_vpc.project3_vpc.id
+#   vpc_id                    = aws_vpc.project_3_vpc.id
 
 #   ingress {
 #     from_port               = 22
@@ -138,7 +138,7 @@ resource "aws_route_table_association" "db_subnet" {
 resource "aws_security_group" "db_sg" {
   name                      = "db_security_group"
   description               = "DB security group for RDS and SSH traffic over ports 3306 and 22"
-  vpc_id                    = aws_vpc.project3_vpc.id
+  vpc_id                    = aws_vpc.project_3_vpc.id
   
   ingress {
     from_port               = 3306

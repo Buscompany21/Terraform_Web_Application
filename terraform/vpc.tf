@@ -94,46 +94,6 @@ resource "aws_route_table_association" "db_subnet" {
   route_table_id            = aws_route_table.public.id
 }
 
-# Compute Security Group
-# resource "aws_security_group" "ec2_sg" {
-#   name                      = "ec2_security_group"
-#   description               = "Security Group for EC2 webserver instance for SSH and HTTP/HTTPS traffic"
-#   vpc_id                    = aws_vpc.project_3_vpc.id
-
-#   ingress {
-#     from_port               = 22
-#     to_port                 = 22
-#     protocol                = "tcp"
-#     cidr_blocks             = ["10.0.0.0/18", "0.0.0.0/0"]
-#   }
-  
-#   ingress {
-#     from_port               = 3000
-#     to_port                 = 3000
-#     protocol                = "tcp"
-#     cidr_blocks             = ["0.0.0.0/0"]
-#   }
-
-#   ingress {
-#     from_port               = 443
-#     to_port                 = 443
-#     protocol                = "tcp"
-#     cidr_blocks             = ["0.0.0.0/0"]
-#   }
-
-#   egress {
-#     from_port               = 0
-#     to_port                 = 0
-#     protocol                = "-1"
-#     cidr_blocks             = ["0.0.0.0/0"]
-#   }
-
-#   tags = {
-#     Name = "EC2 Security Group"
-#     security_group = "ec2_sg"
-#   }
-# }
-
 # RDS Security Group
 resource "aws_security_group" "db_sg" {
   name                      = "db_security_group"

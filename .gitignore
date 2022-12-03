@@ -1,3 +1,5 @@
 *.exe
 .terraform
 .terraform.lock.hcl
+terraform.tfstatement
+terraform.tfstatement.backup

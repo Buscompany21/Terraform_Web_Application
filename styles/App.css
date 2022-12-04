@@ -1,0 +1,21 @@
+.App {
+  text-align: center;
+  color: #014421;
+}
+
+.Tab {
+  cursor: pointer;
+}
+
+.Selected {
+  color: #8b0000;
+  font-weight: bold;
+  border-bottom: 3px solid #8b0000;
+  padding-bottom: 3px;
+}
+
+.Subtext {
+  color: #000000;
+  opacity: 60%;
+  font-size: smaller;
+}

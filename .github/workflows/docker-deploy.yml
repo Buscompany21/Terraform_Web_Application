@@ -32,7 +32,7 @@ jobs:
     - name: Build, tag, and push image to Amazon ECR
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: group-project-3-ecr_repo
+        ECR_REPOSITORY: group-project-3
         # Change to this repo after running terraform
         # ECR_REPOSITORY: group-project-3-ecr_repo
         IMAGE_TAG: latest 

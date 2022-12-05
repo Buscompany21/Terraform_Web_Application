@@ -1,1 +1,5 @@
 file to test github actions
+
+aws ecs update-service --cluster <cluster> --service <service> --force-new-deployment
+
+tf destroy

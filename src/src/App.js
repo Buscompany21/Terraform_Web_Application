@@ -1,24 +1,23 @@
+import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from 'axios'
 import { Container, Row, Col, Card, CardGroup } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 
-export default function Home() {
+function App() {
   const [tab, setTab] = useState('All');
   const [donuts, setDonuts] = useState();
   const [display, setDisplay] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost/api/hello').then(response => {
+    axios.get('http://shurkain.com:4040/').then(response => {
       setDonuts(response.data);
       setDisplay(response.data);
     });
   }, [])
 
-  if (!display) return <div>Loading...</div>
-
   return (
-    <Container className='App mt-3'>
+    <Container className='App'>
       <h1><b>DOUGHNUTS</b></h1>
       <p className='Subtext'>Daily selection varies by shop</p>
       <Row className='mb-5'>
@@ -34,7 +33,7 @@ export default function Home() {
           {display.map(el => {
             return (
               <Col xs='3'>
-                <Card border='light' className='mb-3' style={{'min-height': '25rem'}}>
+                <Card border='light' className='mb-3' minHeight='25rem' >
                   <Card.Img src={el.Image} style={{'max-height':'20rem', 'width': 'auto'}}/>
                   <Card.Body/>
                   <Card.Title>{el.Name}</Card.Title>
@@ -47,3 +46,5 @@ export default function Home() {
     </Container>
   );
 }
+
+export default App;

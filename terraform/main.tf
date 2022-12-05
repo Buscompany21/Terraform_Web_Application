@@ -1,5 +1,5 @@
-provider "aws" {region = var.region}
+provider "aws" { region = var.region }
 
 resource "random_id" "id" {
-    byte_length = 8
+  byte_length = 8
 }

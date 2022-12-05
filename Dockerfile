@@ -20,4 +20,4 @@ EXPOSE 3000
 
 # Command on container startup to start node server and listen on Port 3000
 #Change the command below for react app
-CMD npm run dev
+CMD npm run start

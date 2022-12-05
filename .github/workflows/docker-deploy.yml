@@ -39,5 +39,4 @@ jobs:
       run: |
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-      # Uncomment the following line and add service to continually deploy image on push
-      # aws ecs update-service --cluster groupproject3ecscluster --service <service> --force-new-deployment
+        aws ecs update-service --cluster groupproject3ecscluster --service group-project-3-service --force-new-deployment

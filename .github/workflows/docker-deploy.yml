@@ -32,8 +32,12 @@ jobs:
     - name: Build, tag, and push image to Amazon ECR
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: group-project-3
+        ECR_REPOSITORY: group-project-3-ecr_repo
+        # Change to this repo after running terraform
+        # ECR_REPOSITORY: group-project-3-ecr_repo
         IMAGE_TAG: latest 
       run: |
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+      # Uncomment the following line and add service to continually deploy image on push
+      # aws ecs update-service --cluster groupproject3ecscluster --service <service> --force-new-deployment

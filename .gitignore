@@ -3,3 +3,10 @@ terraform/.terraform
 terraform/.terraform.lock.hcl
 terraform/terraform.tfstatement
 terraform/terraform.tfstatement.backup
+
+# Compiled files
+*.tfstate
+*.tfstate.backup
+.terraform.tfstate.lock.info
+# Module directory
+.terraform/

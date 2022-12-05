@@ -18,7 +18,7 @@ function App() {
 
   return (
     <Container className='App'>
-      <h1><b>DOUGHNUTS</b></h1>
+      <h1><b>DONUTS</b></h1>
       <p className='Subtext'>Daily selection varies by shop</p>
       <Row className='mb-5'>
         <Col xs='2' onClick={() => {setTab('All'); setDisplay(donuts);}}><span className={tab === 'All' ? 'Selected Tab' : 'Tab'}>ALL</span></Col>
